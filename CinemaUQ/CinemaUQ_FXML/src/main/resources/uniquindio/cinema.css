@@ -1,0 +1,492 @@
+/* ===== FONDO GENERAL ===== */
+
+.root, .page {
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-background-color: #F8F7FF;
+    -fx-text-fill: #35405A;
+}
+
+
+/* ===== TEXTOS ===== */
+
+.label {
+    -fx-text-fill: #35405A;
+    -fx-font-size: 13px;
+}
+
+.brand {
+    -fx-text-fill: #7856D8;
+    -fx-font-size: 39px;
+    -fx-font-weight: bold;
+}
+
+.brand-small {
+    -fx-text-fill: #7856D8;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.heading {
+    -fx-text-fill: #6845C4;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+.subtitle {
+    -fx-text-fill: #75819B;
+    -fx-font-size: 13px;
+}
+
+.hint {
+    -fx-text-fill: #8993A9;
+    -fx-font-size: 12px;
+}
+
+.value {
+    -fx-text-fill: #7856D8;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+
+/* ===== ENCABEZADO ===== */
+
+.header {
+    -fx-padding: 14 22 14 22;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E5E1F2;
+    -fx-border-width: 0 0 1 0;
+}
+
+
+/* ===== CONTENIDO ===== */
+
+.content {
+    -fx-padding: 24;
+    -fx-background-color: #F8F7FF;
+}
+
+
+/* ===== TARJETAS ===== */
+
+.card {
+    -fx-padding: 18;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E5E1F2;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(120, 86, 216, 0.08),
+            12,
+            0,
+            0,
+            3
+    );
+}
+
+
+/* ===== BOTONES GENERALES ===== */
+
+.button {
+    -fx-background-color: #EDE5FF;
+    -fx-text-fill: #6845C4;
+    -fx-padding: 9 16;
+    -fx-background-radius: 7;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #DDD0FF;
+    -fx-text-fill: #5634B2;
+}
+
+.button:pressed {
+    -fx-background-color: #C9B5FA;
+}
+
+
+/* ===== BOTONES PRINCIPALES ===== */
+/* Conservamos gold-button para no modificar FXML */
+
+.gold-button {
+    -fx-background-color: linear-gradient(
+            to right,
+            #7856D8,
+            #9678EB
+    );
+
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-background-radius: 7;
+    -fx-padding: 10 18;
+}
+
+.gold-button:hover {
+    -fx-background-color: #6845C4;
+    -fx-text-fill: #FFFFFF;
+}
+
+.gold-button:pressed {
+    -fx-background-color: #5634B2;
+}
+
+
+/* ===== CAMPOS DE TEXTO ===== */
+
+.text-field,
+.password-field,
+.text-area,
+.combo-box,
+.date-picker,
+.spinner {
+
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #35405A;
+    -fx-prompt-text-fill: #A0A8BB;
+
+    -fx-border-color: #DCD6F0;
+    -fx-border-radius: 7;
+    -fx-background-radius: 7;
+}
+
+.text-field:focused,
+.password-field:focused,
+.text-area:focused,
+.combo-box:focused {
+
+    -fx-border-color: #9678EB;
+    -fx-background-color: #FFFFFF;
+}
+
+
+/* ===== AREA DE TEXTO ===== */
+
+.text-area .content {
+    -fx-background-color: #FFFFFF;
+}
+
+.text-area .text {
+    -fx-fill: #35405A;
+}
+
+
+/* ===== COMBOBOX Y SPINNER ===== */
+
+.combo-box .list-cell,
+.spinner .text-field,
+.date-picker .text-field {
+
+    -fx-text-fill: #35405A;
+    -fx-background-color: #FFFFFF;
+}
+
+.combo-box .arrow-button,
+.date-picker .arrow-button,
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+
+    -fx-background-color: #EDE5FF;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E5E1F2;
+}
+
+.combo-box-popup .list-cell {
+    -fx-text-fill: #35405A;
+    -fx-background-color: #FFFFFF;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #EDE5FF;
+    -fx-text-fill: #6845C4;
+}
+
+.combo-box-popup .list-cell:filled:selected {
+    -fx-background-color: #DDD0FF;
+    -fx-text-fill: #5634B2;
+}
+
+
+/* ===== LISTAS ===== */
+
+.list-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E5E1F2;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.list-cell {
+    -fx-text-fill: #35405A;
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 9;
+}
+
+.list-cell:filled:selected {
+    -fx-background-color: #E5D9FF;
+    -fx-text-fill: #5634B2;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: #F1EBFF;
+}
+
+
+/* ===== PESTAÑAS ===== */
+
+.tab-pane {
+    -fx-background-color: #F8F7FF;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #FFFFFF;
+}
+
+.tab {
+    -fx-background-color: #F1EDFC;
+    -fx-background-radius: 8 8 0 0;
+    -fx-padding: 9 17;
+}
+
+.tab:selected {
+    -fx-background-color: #E2D5FF;
+}
+
+.tab:hover {
+    -fx-background-color: #EDE5FF;
+}
+
+.tab .tab-label {
+    -fx-text-fill: #75819B;
+    -fx-font-size: 13px;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: #6845C4;
+    -fx-font-weight: bold;
+}
+
+.tab-pane .tab-content-area {
+    -fx-background-color: #F8F7FF;
+}
+
+
+/* ===== SCROLL ===== */
+
+.scroll-pane,
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+    -fx-background-color: #F8F7FF;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #D9C9FA;
+    -fx-background-radius: 10;
+}
+
+
+/* ===== CHECKBOX ===== */
+
+.check-box {
+    -fx-text-fill: #35405A;
+}
+
+.check-box .box {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #C9B5FA;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #7856D8;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #FFFFFF;
+}
+
+
+/* ==========================================
+   SELECCION DE ASIENTOS
+   ========================================== */
+
+
+/* ===== PANTALLA DEL CINE ===== */
+
+.screen {
+    -fx-background-color: linear-gradient(
+            to right,
+            #DCEEFF,
+            #D9C9FA,
+            #DCEEFF
+    );
+
+    -fx-text-fill: #6845C4;
+    -fx-padding: 9;
+    -fx-font-weight: bold;
+    -fx-background-radius: 30;
+}
+
+
+/* ===== FILAS ===== */
+
+.seat-row {
+    -fx-padding: 5;
+    -fx-text-fill: #75819B;
+}
+
+
+/* ===== ASIENTOS DISPONIBLES ===== */
+
+.seat {
+    -fx-background-color: #D9C9FA;
+    -fx-text-fill: #5634B2;
+    -fx-font-size: 11px;
+    -fx-padding: 5;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.seat:hover {
+    -fx-background-color: #BFA9F4;
+    -fx-text-fill: #43248E;
+}
+
+
+/* ===== ASIENTOS SELECCIONADOS ===== */
+
+.seat-selected {
+    -fx-background-color: #7856D8;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.seat-selected:hover {
+    -fx-background-color: #6845C4;
+    -fx-text-fill: #FFFFFF;
+}
+
+
+/* ===== ASIENTOS OCUPADOS ===== */
+
+.seat-occupied {
+    -fx-background-color: #E2E5ED;
+    -fx-text-fill: #9BA3B5;
+    -fx-opacity: 0.85;
+    -fx-cursor: default;
+}
+
+.seat-occupied:hover {
+    -fx-background-color: #E2E5ED;
+    -fx-text-fill: #9BA3B5;
+}
+
+
+/* ===== ASIENTOS ACCESIBLES ===== */
+
+.seat-accessible {
+    -fx-background-color: #B9E1FF;
+    -fx-text-fill: #276CA6;
+}
+
+.seat-accessible:hover {
+    -fx-background-color: #95D0FA;
+    -fx-text-fill: #205B8F;
+}
+
+
+/* ==========================================
+   REPORTES Y ESTADISTICAS
+   ========================================== */
+
+
+/* ===== GRAFICOS ===== */
+
+.chart {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 12;
+}
+
+.chart-title {
+    -fx-text-fill: #6845C4;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.axis-label {
+    -fx-text-fill: #75819B;
+}
+
+.chart-plot-background {
+    -fx-background-color: #F8F7FF;
+}
+
+.chart-legend {
+    -fx-background-color: #FFFFFF;
+}
+
+.chart-legend-item {
+    -fx-text-fill: #35405A;
+}
+
+
+/* ===== LINEAS DE GRAFICOS ===== */
+
+.chart-horizontal-grid-lines,
+.chart-vertical-grid-lines {
+    -fx-stroke: #E9E4F5;
+}
+
+
+/* ===== COLORES DE GRAFICOS ===== */
+
+.default-color0.chart-bar {
+    -fx-bar-fill: #7856D8;
+}
+
+.default-color1.chart-bar {
+    -fx-bar-fill: #A78BFA;
+}
+
+.default-color2.chart-bar {
+    -fx-bar-fill: #88C8F7;
+}
+
+.default-color3.chart-bar {
+    -fx-bar-fill: #B9E1FF;
+}
+
+.default-color0.chart-pie {
+    -fx-pie-color: #7856D8;
+}
+
+.default-color1.chart-pie {
+    -fx-pie-color: #A78BFA;
+}
+
+.default-color2.chart-pie {
+    -fx-pie-color: #88C8F7;
+}
+
+.default-color3.chart-pie {
+    -fx-pie-color: #B9E1FF;
+}
+
+
+/* ===== BOTONES DESHABILITADOS ===== */
+
+.button:disabled {
+    -fx-background-color: #E9EAF0;
+    -fx-text-fill: #A0A8BB;
+    -fx-opacity: 0.8;
+}

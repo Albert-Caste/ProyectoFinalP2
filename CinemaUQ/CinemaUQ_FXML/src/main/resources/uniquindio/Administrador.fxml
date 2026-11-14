@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="uniquindio.ViewController.AdministradorViewController" styleClass="page">
+    <top>
+        <HBox spacing="18" alignment="CENTER_LEFT" styleClass="header">
+            <Label text="CinemaUQ" styleClass="brand-small" />
+            <Label text="PANEL ADMINISTRADOR" styleClass="heading" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Actualizar" onAction="#refrescar" />
+            <Button text="Cerrar sesión" onAction="#salir" />
+        </HBox>
+    </top>
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Películas">
+                    <content>
+                        <VBox spacing="14" styleClass="content">
+                            <Label text="Gestión de películas" styleClass="heading" />
+                            <ListView fx:id="listaPeliculas" VBox.vgrow="ALWAYS" />
+                            <HBox spacing="10">
+                                <TextField fx:id="titulo" promptText="Título" HBox.hgrow="ALWAYS" />
+                                <TextField fx:id="genero" promptText="Género" HBox.hgrow="ALWAYS" />
+                                <TextField fx:id="duracion" promptText="Minutos" prefWidth="110" />
+                            </HBox>
+                            <HBox spacing="10">
+                                <Button text="Crear" onAction="#crearPelicula" styleClass="gold-button" />
+                                <Button text="Editar seleccionada" onAction="#editarPelicula" />
+                                <Button text="Activar / desactivar" onAction="#alternarPelicula" />
+                            </HBox>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="Salas y funciones">
+                    <content>
+                        <ScrollPane fitToWidth="true">
+                            <content>
+                                <VBox spacing="16" styleClass="content">
+                                    <VBox spacing="10" styleClass="card">
+                                        <Label text="Salas" styleClass="heading" />
+                                        <ListView fx:id="listaSalas" prefHeight="105" />
+                                        <HBox spacing="10">
+                                            <TextField fx:id="nombreSala" promptText="Nombre sala" />
+                                            <TextField fx:id="filas" promptText="Filas (1-8)" prefWidth="115" />
+                                            <TextField fx:id="columnas" promptText="Columnas (1-12)" prefWidth="150" />
+                                            <Button text="Crear sala" onAction="#crearSala" styleClass="gold-button" />
+                                        </HBox>
+                                        <Label text="Bloquear o habilitar asiento (por ejemplo, A1)" styleClass="hint" />
+                                        <HBox spacing="10">
+                                            <ComboBox fx:id="salaAsiento" promptText="Sala" prefWidth="220" />
+                                            <TextField fx:id="asiento" promptText="Asiento: A1" prefWidth="140" />
+                                            <Button text="Bloquear / desbloquear" onAction="#alternarAsiento" />
+                                        </HBox>
+                                    </VBox>
+                                    <VBox spacing="10" styleClass="card">
+                                        <Label text="Funciones" styleClass="heading" />
+                                        <ListView fx:id="listaFunciones" prefHeight="150" />
+                                        <HBox spacing="10">
+                                            <ComboBox fx:id="peliculaFuncion" promptText="Película" prefWidth="260" />
+                                            <ComboBox fx:id="salaFuncion" promptText="Sala" prefWidth="200" />
+                                        </HBox>
+                                        <HBox spacing="10">
+                                            <DatePicker fx:id="fechaFuncion" />
+                                            <TextField fx:id="horaFuncion" promptText="HH:mm" prefWidth="100" />
+                                            <TextField fx:id="precioFuncion" promptText="Precio COP" prefWidth="140" />
+                                            <Button text="Crear función" onAction="#crearFuncion" styleClass="gold-button" />
+                                        </HBox>
+                                        <Button text="Cancelar función seleccionada (reembolso 100%)" onAction="#cancelarFuncion" />
+                                    </VBox>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </content>
+                </Tab>
+                <Tab text="Confitería y promociones">
+                    <content>
+                        <ScrollPane fitToWidth="true">
+                            <content>
+                                <VBox spacing="16" styleClass="content">
+                                    <VBox spacing="10" styleClass="card">
+                                        <Label text="Productos y combos" styleClass="heading" />
+                                        <ListView fx:id="listaArticulos" prefHeight="150" />
+                                        <HBox spacing="10">
+                                            <TextField fx:id="nombreProducto" promptText="Nombre producto" prefWidth="260" />
+                                            <TextField fx:id="precioProducto" promptText="Precio COP" prefWidth="130" />
+                                            <TextField fx:id="stockProducto" promptText="Stock" prefWidth="100" />
+                                            <Button text="Crear producto" onAction="#crearProducto" styleClass="gold-button" />
+                                            <Button text="Editar" onAction="#editarProducto" />
+                                        </HBox>
+                                        <Label text="Nuevo combo de dos productos" styleClass="hint" />
+                                        <HBox spacing="10">
+                                            <TextField fx:id="nombreCombo" promptText="Nombre combo" prefWidth="230" />
+                                            <TextField fx:id="precioCombo" promptText="Precio" prefWidth="120" />
+                                            <ComboBox fx:id="comboPrimero" promptText="Producto 1" prefWidth="190" />
+                                            <ComboBox fx:id="comboSegundo" promptText="Producto 2" prefWidth="190" />
+                                        </HBox>
+                                        <Button text="Crear combo" onAction="#crearCombo" styleClass="gold-button" />
+                                    </VBox>
+                                    <VBox spacing="10" styleClass="card">
+                                        <Label text="Promociones" styleClass="heading" />
+                                        <ListView fx:id="listaPromociones" prefHeight="110" />
+                                        <HBox spacing="10">
+                                            <TextField fx:id="nombrePromocion" promptText="Nombre promoción" prefWidth="260" />
+                                            <TextField fx:id="porcentajePromocion" promptText="Descuento %" prefWidth="140" />
+                                            <Button text="Crear promoción" onAction="#crearPromocion" styleClass="gold-button" />
+                                            <Button text="Activar / desactivar" onAction="#alternarPromocion" />
+                                        </HBox>
+                                        <Label text="Solo puede estar activa una promoción. Aplica a entradas y confitería pagadas con tarjeta." styleClass="hint" wrapText="true" />
+                                    </VBox>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </content>
+                </Tab>
+                <Tab text="Clientes y recargas">
+                    <content>
+                        <VBox spacing="14" styleClass="content">
+                            <Label text="Clientes" styleClass="heading" />
+                            <ListView fx:id="listaClientes" prefHeight="140" />
+                            <Label fx:id="datosCliente" text="Selecciona un cliente." styleClass="value" />
+                            <HBox spacing="10">
+                                <TextField fx:id="valorRecarga" promptText="Monto de recarga" prefWidth="200" />
+                                <Button text="Recargar tarjeta" onAction="#recargar" styleClass="gold-button" />
+                                <Button text="Activar / bloquear tarjeta" onAction="#alternarTarjeta" />
+                            </HBox>
+                            <Label text="Solicitudes pendientes" styleClass="heading" />
+                            <ListView fx:id="listaSolicitudes" prefHeight="100" />
+                            <Label text="Compras del cliente seleccionado" styleClass="heading" />
+                            <ListView fx:id="listaCompras" VBox.vgrow="ALWAYS" />
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="Reportes y estadísticas">
+                    <content>
+                        <ScrollPane fitToWidth="true">
+                            <content>
+                                <VBox spacing="15" styleClass="content">
+                                    <HBox spacing="12" alignment="CENTER_LEFT">
+                                        <Label text="Desde" />
+                                        <DatePicker fx:id="fechaDesde" />
+                                        <Label text="Hasta" />
+                                        <DatePicker fx:id="fechaHasta" />
+                                        <Button text="Generar reporte" onAction="#generarReporte" styleClass="gold-button" />
+                                        <Button text="Exportar TXT" onAction="#exportarReporte" />
+                                    </HBox>
+                                    <HBox spacing="15">
+                                        <Label fx:id="ventas" text="Ventas netas: $0" styleClass="value" />
+                                        <Label fx:id="entradas" text="Entradas vendidas: 0" styleClass="value" />
+                                        <Label fx:id="ocupacion" text="Ocupación: 0" styleClass="value" />
+                                        <Label fx:id="reembolsos" text="Reembolsos: $0" styleClass="value" />
+                                    </HBox>
+                                    <Label text="Informe de operaciones" styleClass="heading" />
+                                    <TextArea fx:id="textoReporte" prefHeight="250" wrapText="false" editable="false" />
+                                    <BarChart fx:id="barras" title="Entradas vendidas por película" prefHeight="240" animated="false" legendVisible="false">
+                                        <xAxis><CategoryAxis label="Película" /></xAxis>
+                                        <yAxis><NumberAxis label="Entradas" /></yAxis>
+                                    </BarChart>
+                                    <PieChart fx:id="pastel" title="Ocupación de funciones futuras" prefHeight="250" />
+                                    <LineChart fx:id="linea" title="Ventas netas por día" prefHeight="260" animated="false" legendVisible="false">
+                                        <xAxis><CategoryAxis label="Día" /></xAxis>
+                                        <yAxis><NumberAxis label="COP" /></yAxis>
+                                    </LineChart>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

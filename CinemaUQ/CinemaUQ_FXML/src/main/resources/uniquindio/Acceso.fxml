@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="uniquindio.ViewController.AccesoViewController" styleClass="page">
+    <center>
+        <VBox alignment="CENTER" spacing="20" maxWidth="520" BorderPane.alignment="CENTER">
+            <Label text="CINEMAUQ" styleClass="brand" />
+            <Label text="Tu cine, tus asientos, tu experiencia" styleClass="subtitle" />
+            <TabPane tabClosingPolicy="UNAVAILABLE" maxWidth="450">
+                <tabs>
+                    <Tab text="Iniciar sesión">
+                        <content>
+                            <VBox spacing="14" styleClass="card">
+                                <Label text="Bienvenido de nuevo" styleClass="heading" />
+                                <Label text="Correo electrónico" />
+                                <TextField fx:id="correoLogin" promptText="correo@ejemplo.com" text="cliente@cinemauq.com" />
+                                <Label text="Contraseña" />
+                                <PasswordField fx:id="claveLogin" promptText="Contraseña" text="Cliente123" onAction="#ingresar" />
+                                <Button text="INGRESAR" onAction="#ingresar" maxWidth="Infinity" styleClass="gold-button" />
+                                <Label text="Demo: cliente@cinemauq.com / Cliente123" wrapText="true" styleClass="hint" />
+                                <Label text="Admin: admin@cinemauq.com / Admin123" wrapText="true" styleClass="hint" />
+                            </VBox>
+                        </content>
+                    </Tab>
+                    <Tab text="Registrarme">
+                        <content>
+                            <VBox spacing="14" styleClass="card">
+                                <Label text="Crea tu cuenta" styleClass="heading" />
+                                <Label text="Nombre" />
+                                <TextField fx:id="nombreRegistro" promptText="Nombre completo" />
+                                <Label text="Correo electrónico" />
+                                <TextField fx:id="correoRegistro" promptText="correo@ejemplo.com" />
+                                <Label text="Contraseña (mínimo 4 caracteres)" />
+                                <PasswordField fx:id="claveRegistro" promptText="Contraseña" />
+                                <Button text="CREAR CUENTA" onAction="#registrar" maxWidth="Infinity" styleClass="gold-button" />
+                            </VBox>
+                        </content>
+                    </Tab>
+                </tabs>
+            </TabPane>
+            <Label text="Pagos simulados con tarjeta virtual · Sin conexión bancaria" styleClass="hint" />
+        </VBox>
+    </center>
+</BorderPane>

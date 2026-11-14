@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="uniquindio.ViewController.ClienteViewController" styleClass="page">
+    <top>
+        <HBox spacing="18" alignment="CENTER_LEFT" styleClass="header">
+            <Label text="CinemaUQ" styleClass="brand-small" />
+            <Label fx:id="saludo" text="Bienvenido" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="Tarjeta:" styleClass="hint" />
+            <Label fx:id="saldo" text="\$0" styleClass="value" />
+            <Label text="Puntos:" styleClass="hint" />
+            <Label fx:id="puntos" text="0 pts" styleClass="value" />
+            <Button text="Actualizar" onAction="#actualizar" />
+            <Button text="Salir" onAction="#salir" />
+        </HBox>
+    </top>
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Cartelera y compra">
+                    <content>
+                        <ScrollPane fitToWidth="true">
+                            <content>
+                                <VBox spacing="16" styleClass="content">
+                                    <Label text="Elige tu función" styleClass="heading" />
+                                    <ComboBox fx:id="funcionCombo" prefWidth="700" promptText="Selecciona una función" />
+                                    <Label fx:id="detalleFuncion" text="Selecciona una función" styleClass="subtitle" />
+                                    <VBox spacing="10" styleClass="card">
+                                        <Label text="PANTALLA" styleClass="screen" maxWidth="Infinity" alignment="CENTER" />
+                                        <ScrollPane fitToHeight="true" fitToWidth="false" hbarPolicy="AS_NEEDED" vbarPolicy="NEVER">
+                                            <content>
+                                                <GridPane fx:id="asientosGrid" hgap="7" vgap="7" alignment="CENTER" />
+                                            </content>
+                                        </ScrollPane>
+                                        <Label text="Morado claro: disponible   ·   Morado intenso: seleccionado   ·   Gris: ocupado/bloqueado   ·   Azul claro: accesible" styleClass="hint" />
+                                        <Label fx:id="disponibles" text="Ningún asiento seleccionado" />
+                                    </VBox>
+                                    <HBox spacing="16" alignment="TOP_LEFT">
+                                        <VBox spacing="12" styleClass="card" HBox.hgrow="ALWAYS">
+                                            <Label text="Confitería" styleClass="heading" />
+                                            <ComboBox fx:id="articuloCombo" prefWidth="380" />
+                                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                                <Label text="Cantidad:" />
+                                                <Spinner fx:id="cantidad" prefWidth="90" editable="true" />
+                                                <Button text="Agregar" onAction="#agregarArticulo" styleClass="gold-button" />
+                                            </HBox>
+                                            <Label text="Puedes comprar solo confitería sin seleccionar asientos." wrapText="true" styleClass="hint" />
+                                        </VBox>
+                                        <VBox spacing="10" styleClass="card" HBox.hgrow="ALWAYS">
+                                            <Label text="Tu carrito" styleClass="heading" />
+                                            <ListView fx:id="carrito" prefHeight="120" />
+                                            <Button text="Quitar seleccionado" onAction="#quitarArticulo" />
+                                        </VBox>
+                                    </HBox>
+                                    <VBox spacing="12" styleClass="card">
+                                        <Label text="Pago y puntos" styleClass="heading" />
+                                        <CheckBox fx:id="redimirEntradas" text="Redimir entradas: 120 puntos por asiento" />
+                                        <CheckBox fx:id="redimirProductos" text="Redimir confitería: 40 puntos por producto o 70 por combo" />
+                                        <Label fx:id="resumen" text="Total: $0" styleClass="value" wrapText="true" />
+                                        <Button text="CONFIRMAR COMPRA CON TARJETA VIRTUAL" onAction="#comprar" styleClass="gold-button" maxWidth="Infinity" />
+                                    </VBox>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </content>
+                </Tab>
+                <Tab text="Mis compras">
+                    <content>
+                        <VBox spacing="14" styleClass="content">
+                            <Label text="Historial de compras" styleClass="heading" />
+                            <ListView fx:id="listaCompras" VBox.vgrow="ALWAYS" />
+                            <Label text="Cancelaciones: más de 24 horas, 100%; entre 2 y 24 horas, 80%; menos de 2 horas, no permitidas." wrapText="true" styleClass="hint" />
+                            <Button text="Solicitar cancelación de compra seleccionada" onAction="#cancelarCompra" styleClass="gold-button" />
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="Mi tarjeta">
+                    <content>
+                        <VBox spacing="16" styleClass="content">
+                            <Label text="Tarjeta virtual CinemaUQ" styleClass="heading" />
+                            <Label fx:id="saldoTarjeta" styleClass="value" />
+                            <Label text="Movimientos" />
+                            <ListView fx:id="listaMovimientos" VBox.vgrow="ALWAYS" />
+                            <Label text="Solicita una recarga. Solo un administrador puede acreditarla." styleClass="hint" />
+                            <HBox spacing="10">
+                                <TextField fx:id="valorRecarga" promptText="Valor en COP" />
+                                <Button text="Solicitar recarga" onAction="#solicitarRecarga" styleClass="gold-button" />
+                            </HBox>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="Mis puntos">
+                    <content>
+                        <VBox spacing="14" styleClass="content">
+                            <Label text="Programa de fidelidad" styleClass="heading" />
+                            <Label fx:id="puntosDetalle" styleClass="value" wrapText="true" />
+                            <Label text="Lotes disponibles, ordenados por vencimiento" />
+                            <ListView fx:id="listaPuntos" VBox.vgrow="ALWAYS" />
+                            <Label text="En Cartelera puedes pagar entradas, productos y combos con puntos. Se utilizan primero los próximos a vencer." wrapText="true" styleClass="hint" />
+                        </VBox>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>
