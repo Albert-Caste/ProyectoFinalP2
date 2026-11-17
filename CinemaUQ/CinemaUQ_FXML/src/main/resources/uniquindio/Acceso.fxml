@@ -39,7 +39,6 @@
                     </Tab>
                 </tabs>
             </TabPane>
-            <Label text="Pagos simulados con tarjeta virtual · Sin conexión bancaria" styleClass="hint" />
         </VBox>
     </center>
 </BorderPane>
